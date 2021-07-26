@@ -1,0 +1,142 @@
+.readersBox {
+	color: white;
+	border: 3px solid white;
+	padding: 30px;
+}
+
+.readersBox .box {
+	background-color: #2e334d;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 20px;
+	border-radius: 5px;
+	transition: 0.6s;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.readersBox .readersHeader {
+	margin-bottom: 40px;
+}
+
+.box .names,
+.box .icons {
+	z-index: 1;
+}
+.surasBox .icon {
+	display: flex;
+	align-items: center;
+	margin-left: 7px;
+}
+.readersBox .box:before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: linear-gradient(to left, #f88b7f, #e71f65);
+	z-index: 1;
+	border-radius: 5px;
+	transition: 0.2s;
+	opacity: 0;
+}
+.readersBox .box:hover:before {
+	opacity: 1;
+}
+.readersBox h3 {
+	margin-bottom: 10px;
+}
+
+/* .MuiInput-underline:before {
+	right: 0 !important;
+	left: 100% !important;
+	border-bottom: 2px solid white !important;
+	border-image: linear-gradient(to left, #f88b7f, #e71f65) 1 100% !important;
+
+} */
+.record .record-name h5,
+.icons .like {
+	text-align: center !important;
+}
+
+.record {
+	display: flex;
+	align-items: center;
+	text-align: center !important;
+}
+.record .record-name {
+	margin-right: 10px;
+}
+
+/* Suras */
+.surasBody .header {
+	background-color: #2e334d;
+	padding: 20px;
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+	border-radius: 15px;
+}
+
+.surasBody .sura-name,
+.surasBody .icon,
+.surasBody .reader h3 {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.surasBody .reader h6 {
+	color: rgba(255, 255, 255, 0.6);
+}
+.surasBody .reader h3,
+.surasBody .reader h6 {
+	font-weight: bold;
+	display: inline;
+	margin-left: 20px;
+}
+
+.surasBody .title {
+	margin-bottom: 40px;
+}
+
+.surasBody .grid-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #2e334d;
+	padding: 10px 15px 15px 0 !important;
+	border-radius: 7px;
+	position: relative;
+}
+
+.surasBody .MuiIconButton-root {
+	padding: 5px;
+}
+
+.surasBody svg {
+	color: #e71f65;
+	cursor: pointer;
+}
+
+.surasBody .MuiPaper-root {
+	background-color: #e71f65 !important;
+}
+
+.Component-paper-39 {
+	border: none !important;
+}
+
+.MuiMenu-list {
+	padding-right: 0 !important;
+}
+.MuiMenu-list li,
+.MuiMenu-list li svg {
+	color: white;
+}
+
+.MuiMenu-list .MuiTypography-body1 {
+	font-weight: 700;
+}
+
+/* end suras */

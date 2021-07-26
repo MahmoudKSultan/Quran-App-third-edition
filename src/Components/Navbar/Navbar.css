@@ -1,0 +1,24 @@
+.nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 0;
+	z-index: 1;
+	color: white;
+	font-weight: bold;
+
+	/* background-color: tran; */
+}
+
+.nav ul {
+	display: flex;
+	list-style: none;
+}
+.nav ul li {
+	margin: 0 20px;
+}
+.nav ul a {
+	color: white;
+	text-decoration: none;
+}

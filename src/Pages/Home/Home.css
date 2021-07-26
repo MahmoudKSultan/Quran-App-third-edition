@@ -1,0 +1,146 @@
+.home {
+	color: white;
+	border: 3px solid white;
+}
+/* .home-header {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
+.header-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* background-image: linear-gradient(
+			180deg,
+			rgba(51, 51, 51, 0.6),
+			rgba(51, 51, 51, 0.8)
+		),
+		url(./Quran.jpg); */
+/* background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+}
+
+.header-title {
+	position: absolute;
+	top: 30%;
+	right: 10%;
+}
+
+.header-title h1 {
+	color: white;
+	font-size: 45px;
+	border-right: 4px solid white;
+	padding-right: 10px;
+}
+
+.arrow-icon {
+	position: absolute;
+	bottom: 15%;
+	left: 50%;
+	transform: translateX(-50%);
+	animation: animation 1s ease-in-out infinite alternate-reverse;
+}
+
+.arrow-icon .down-arrow {
+	color: white;
+	font-size: 60px;
+}
+.home-body {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-color: #eff;
+}
+
+.home-body h2 {
+	margin-bottom: 30px;
+}
+.home-body-grid {
+	/* border: 3px solid #e63946; */
+/* border-radius: 7px;
+	text-align: right;
+	padding: 20px;
+	background-color: white;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.home-body-grid .grid-title {
+	margin-bottom: 10px;
+}
+@keyframes animation {
+	from {
+		bottom: 15%;
+	}
+	to {
+		bottom: 10%;
+	}
+}  */
+/* 
+.spinner {
+	-webkit-animation: spinner 0.5s linear infinite;
+	animation: spinner 0.5s linear infinite;
+	border-color: #000 rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 2px;
+	display: inline-block;
+}
+.spinner--xl {
+	height: 80px;
+	width: 80px;
+}
+.spinner--l {
+	height: 44px;
+	width: 44px;
+}
+.spinner--m {
+	height: 30px;
+	width: 30px;
+}
+.spinner--s {
+	height: 20px;
+	width: 20px;
+}
+.palette-selector,
+.palette-selector_colors {
+	height: 46px;
+	position: relative;
+}
+.spinner--center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+.spinner--center.spinner--xl {
+	margin: -40px;
+}
+.spinner--center.spinner--l {
+	margin: -22px;
+}
+.spinner--center.spinner--m {
+	margin: -15px;
+}
+.spinner--center.spinner--s {
+	margin: -10px;
+}
+.spinner--light {
+	border-color: #fff rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1);
+}
+@-webkit-keyframes spinner {
+	0% {
+		transform: translate3d(0, 0, 0) rotate(0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0) rotate(359deg);
+	}
+}
+@keyframes spinner {
+	0% {
+		transform: translate3d(0, 0, 0) rotate(0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0) rotate(359deg);
+	}
+} */

@@ -1,0 +1,40 @@
+.favorites .box {
+	background-color: #2e334d;
+	margin: 0 15px;
+	min-height: 500px;
+	padding: 0 15px;
+}
+
+.favorites .grid-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	/* background-color: #1d2239; */
+	padding: 20px !important;
+	border-radius: 7px;
+	position: relative;
+	color: #ddd;
+	cursor: pointer;
+	border: 2px solid #e71f65;
+}
+
+.favorites > h4 {
+	color: #eef;
+	margin-bottom: 30px;
+}
+.favorites .grid-box .icon {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.favorites .grid-box .number {
+	margin-left: 10px;
+	background-color: #e71f65;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	border-radius: 50%;
+	font-weight: bold;
+	font-size: 12px;
+}

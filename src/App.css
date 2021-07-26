@@ -1,0 +1,62 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Almarai", sans-serif;
+	text-align: right;
+}
+
+/* .page {
+	padding-top: 80px;
+} */
+a {
+	text-decoration: none;
+}
+.App > .MuiGrid-container > .MuiGrid-item:nth-child(2) {
+	padding: 20px;
+}
+
+.title {
+	border-right: 3px solid;
+	border-image: linear-gradient(to bottom, #f88b7f, #e71f65) 1 100%;
+	margin-bottom: 20px;
+	padding: 7px;
+	color: white;
+}
+
+/* for search input */
+label.MuiFormLabel-root {
+	color: #ccc;
+	right: 0;
+	transform-origin: top right;
+}
+label.MuiInputLabel-formControl {
+	right: 0;
+}
+
+/* .MuiInput-underline:hover:not(.Mui-disabled):before {
+	border-bottom: 2px solid #ddd;
+} */
+
+.MuiInput-underline:before {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.MuiInputBase-input {
+	color: #ccc !important;
+}
+
+@media (max-width: 991px) {
+	.sidebar {
+		right: -300px;
+	}
+	.pageBody {
+		width: 100%;
+	}
+}
+
+@media (max-width: 767px) {
+	.hide-on-xs {
+		transform: translateX(280px);
+	}
+}

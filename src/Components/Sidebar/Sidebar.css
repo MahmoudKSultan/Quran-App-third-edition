@@ -1,0 +1,39 @@
+.sidebar {
+	height: 100vh;
+	background-color: #2e334d;
+	padding: 30px;
+	position: fixed;
+	width: 300px;
+}
+.sidebar .MuiListItem-button.active {
+	background: linear-gradient(to left, #f88b7f, #e71f65);
+	border-radius: 5px;
+	color: white;
+}
+
+.sidebar .MuiListItem-button {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.sidebar .MuiListItem-button.active path {
+	color: white !important;
+}
+.sidebar .MuiListItemIcon-root {
+	color: rgba(255, 255, 255, 0.7);
+	min-width: 40px;
+}
+
+.sidebar .MuiListItemText-primary {
+	font-size: 18px;
+}
+
+.sidebar a {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.sidebar .MuiListSubheader-gutters {
+	font-size: 30px;
+	color: #f1276e;
+	margin-bottom: 30px;
+}

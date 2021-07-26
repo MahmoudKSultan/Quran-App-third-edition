@@ -1,0 +1,31 @@
+.izaaBox {
+	border: 2px solid #e71f65;
+	padding: 10px 20px;
+	color: #ddd;
+	border-radius: 5px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.izaaBox .izaa-functions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.MuiSvgIcon-root {
+	cursor: pointer;
+}
+path {
+	color: #ddd;
+}
+
+.izaaBox .icons {
+	display: flex;
+	align-items: center;
+}
+
+audio::-webkit-media-controls-timeline {
+	pointer-events: none;
+}

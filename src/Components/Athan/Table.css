@@ -1,0 +1,13 @@
+/* table */
+
+table th {
+	width: 11.42857% !important;
+}
+table th:nth-child(2) {
+	width: 20% !important;
+	text-align: center;
+}
+
+.MuiPaper-root {
+	background-color: #eee !important;
+}
