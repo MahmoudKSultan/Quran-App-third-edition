@@ -1,0 +1,2 @@
+.pagination .wrapper{margin:40px auto;display:-webkit-flex;display:flex;-webkit-justify-content:center;justify-content:center;direction:ltr;-webkit-flex-wrap:wrap;flex-wrap:wrap}.pagination .wrapper span{border:2px solid #f88b7f;border-radius:5px;padding:8px 10px;cursor:pointer;transition:.3s;font-size:18px;font-weight:700;margin:0 5px 10px;color:hsla(0,0%,100%,.7)}.pagination .wrapper span.active,.pagination .wrapper span:hover{background-color:#f88b7f;color:#fff!important}
+/*# sourceMappingURL=5.8c66850c.chunk.css.map */
