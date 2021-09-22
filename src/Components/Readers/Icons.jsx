@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -6,9 +6,8 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import PlaylistAddOutlinedIcon from "@material-ui/icons/PlaylistAddOutlined";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import PlaylistAddCheckIcon from "@material-ui/icons/PlaylistAddCheck";
+import LinkIcon from "@material-ui/icons/Link";
 
 import { IconButton } from "@material-ui/core";
 
@@ -49,8 +48,6 @@ export default function Icons({
 	reader,
 	addSuraToFavorites,
 	favoriteSuras,
-	addSuraToPlaylist,
-	surasPlaylist,
 }) {
 	const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -62,20 +59,16 @@ export default function Icons({
 		setAnchorEl(null);
 	};
 	const [inFav, setInFav] = useState(false);
-	const [inPlaylist, setInPlaylist] = useState(false);
+
 	useEffect(() => {
 		if (favoriteSuras) {
-			const inFav = favoriteSuras.find((s) => s.id === sura.id);
+			const inFav = favoriteSuras.find(
+				(obj) => obj.id === sura.id && obj.readerName === reader.name
+			);
 			setInFav(inFav);
 		}
 	}, [favoriteSuras]);
 
-	useEffect(() => {
-		if (surasPlaylist) {
-			const inPlaylist = surasPlaylist.find((s) => s.id === sura.id);
-			setInPlaylist(inPlaylist);
-		}
-	}, [surasPlaylist]);
 	return (
 		<div>
 			<IconButton
@@ -96,8 +89,11 @@ export default function Icons({
 			>
 				<StyledMenuItem
 					onClick={() => {
-						// addSuraToFavorites({ sura, ...reader }, "favoriteSuras");
-						addSuraToFavorites(sura, "favoriteSuras");
+						addSuraToFavorites(
+							{ readerName: reader.name, rewayaName: reader.rewaya },
+							sura
+						);
+						// addSuraToFavorites(sura, "favoriteSuras");
 						handleClose();
 					}}
 				>
@@ -109,20 +105,14 @@ export default function Icons({
 
 				<StyledMenuItem
 					onClick={() => {
-						addSuraToPlaylist(sura, "surasPlaylist");
+						navigator.clipboard.writeText(sura.url);
 						handleClose();
 					}}
 				>
 					<ListItemIcon>
-						{inPlaylist ? (
-							<PlaylistAddCheckIcon fontSize="default" />
-						) : (
-							<PlaylistAddOutlinedIcon fontSize="default" />
-						)}
+						<LinkIcon />
 					</ListItemIcon>
-					<ListItemText
-						primary={inPlaylist ? " في قائمة التشغيل" : "أضف لقائمة التشغيل"}
-					/>
+					<ListItemText primary={"انسخ الرابط"} />
 				</StyledMenuItem>
 			</StyledMenu>
 		</div>

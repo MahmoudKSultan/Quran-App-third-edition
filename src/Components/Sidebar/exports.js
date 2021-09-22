@@ -7,14 +7,12 @@ import {
 	ListItemText,
 	ListSubheader,
 } from "@material-ui/core";
-
+import EcoIcon from "@material-ui/icons/Eco";
 import RadioOutlinedIcon from "@material-ui/icons/RadioOutlined";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import ImportContactsOutlinedIcon from "@material-ui/icons/ImportContactsOutlined";
-import QueueMusicOutlinedIcon from "@material-ui/icons/QueueMusicOutlined";
-import SurroundSoundOutlinedIcon from "@material-ui/icons/SurroundSoundOutlined";
-
+import ScheduleIcon from "@material-ui/icons/Schedule";
 export {
 	Link,
 	makeStyles,
@@ -27,6 +25,6 @@ export {
 	FavoriteBorderIcon,
 	AccountCircleOutlinedIcon,
 	ImportContactsOutlinedIcon,
-	QueueMusicOutlinedIcon,
-	SurroundSoundOutlinedIcon,
+	ScheduleIcon,
+	EcoIcon,
 };

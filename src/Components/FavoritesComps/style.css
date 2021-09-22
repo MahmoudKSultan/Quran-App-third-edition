@@ -6,7 +6,7 @@
 		),
 		url("./quran.jpg");
 
-	height: calc(100vh - 101px);
+	min-height: calc(100vh - 101px);
 	width: 100%;
 	background-size: cover;
 	background-position: center;
@@ -20,13 +20,14 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 15px 10px;
+	padding: 10px;
 	border-radius: 5px;
 	cursor: pointer;
 }
 
 .favBox .box-title h3 {
 	color: #ddd;
+	margin-bottom: 5px;
 }
 .favBox .box-title h5 {
 	color: #eee;

@@ -4,6 +4,7 @@
 	left: 0;
 	height: 80px;
 	width: 100%;
+	width: calc(100% - 356px);
 }
 .audio audio {
 	width: 100%;
@@ -14,7 +15,7 @@
 audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-panel {
 	/* background: linear-gradient(to left, #eea39b, #e71f65); */
-	background-color: #ec6353;
+	/* background-color: rgba(255, 255, 255, 0.1); */
 	border-radius: 0;
 }
 audio::-webkit-media-controls-panel {
@@ -24,4 +25,16 @@ audio::-webkit-media-controls-play-button {
 	/* background-color: white; */
 	color: black;
 	border-radius: 50%;
+}
+
+@media (max-width: 991px) {
+	.audio {
+		width: calc(100% - 250px);
+	}
+}
+
+@media (max-width: 767px) {
+	.audio {
+		width: 100%;
+	}
 }

@@ -1,11 +1,15 @@
+.izaasBox {
+	padding-bottom: 100px;
+}
 .izaaBox {
-	border: 2px solid #e71f65;
+	/* border: 2px solid #e71f65; */
 	padding: 10px 20px;
 	color: #ddd;
 	border-radius: 5px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	background-color: #2e334d;
 }
 
 .izaaBox .izaa-functions {
@@ -28,4 +32,9 @@ path {
 
 audio::-webkit-media-controls-timeline {
 	pointer-events: none;
+}
+
+.izaa .searchForm {
+	margin-bottom: 30px;
+	margin-top: -20px;
 }

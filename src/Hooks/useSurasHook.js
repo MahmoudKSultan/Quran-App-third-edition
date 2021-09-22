@@ -1,5 +1,6 @@
 // import React from "react";
 import { useState } from "react";
+
 function useSurasHook() {
 	let [favoriteSuras, setFavoriteSuras] = useState(
 		JSON.parse(localStorage.getItem("favoriteSuras")) || []
@@ -16,8 +17,6 @@ function useSurasHook() {
 		setFavoriteSuras(playListSuras);
 	};
 
-	console.log("************************************");
-	console.log(favoriteSuras);
 	return { favoriteSuras, handleLike, playListSuras, setPlayList };
 }
 

@@ -1,114 +1,58 @@
-import React, { useState } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import "./style.css";
-import GetReaders from "./../../Hooks/GetReaders";
 import Loading from "./../Loading/Loading";
-import { Grid, TextField, makeStyles } from "@material-ui/core";
-// import { Link } from "react-router-dom";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import MicNoneIcon from "@material-ui/icons/MicNone";
 import Title from "../Title/Title";
-import { Consumer } from "../../context";
+import paginate from "../../utils/paginate";
+import search from "../../utils/search";
+import Readers from "./Readers";
+import useFetch from "./../../Hooks/useFetch";
+import Form from "../Form/Form";
+import ResultMessage from "./../ResultMessage/ResultMessage";
 
-const useStyles = makeStyles((theme) => ({
-	textField: {
-		// borderBottom: "3px solid rgba(255, 255, 255, 0.5)",
-		color: "rgba(255, 255, 255, 0.5)",
-		// borderImage: "linear-gradient(to left, #f88b7f, #e71f65) 1 100%",
-	},
-}));
 function ReadersBox({ history }) {
-	const classes = useStyles();
-	const { Readers, loading } = GetReaders();
+	const Pagination = lazy(() => import("./../Pagination/Pagination"));
 
-	// on link click
-	const goToLink = (id) => {
-		history.push(`/readers/${id}`);
-	};
+	const {
+		data: readers,
+		loading,
+		error,
+	} = useFetch(
+		"https://qurani-api.herokuapp.com/api/reciters?fbclid=IwAR1z-Hd4ZHS8Wf967RNvusdLlDY4gcjJAPitUx3KgOd1YcIMiarRlmT3ei4"
+	);
 
+	const [page, setPage] = useState(1);
 	const [searchValue, setSearchValue] = useState("");
+	const searchedReaders = search(readers || [], searchValue, "name");
+	const paginatedReaders = paginate(searchedReaders || readers, page, 15);
+
+	const changePageNumber = (page) => setPage(page);
+	// console.log("readers => chunk 13");
 	return (
 		<React.Fragment>
-			{loading ? (
+			{error ? (
+				<ResultMessage text="حصل خطأ ما!" />
+			) : loading ? (
 				<Loading />
 			) : (
-				<Consumer>
-					{({ favoriteReaders, addItemToFavorites, resetPlayingSura }) => {
-						return (
-							<div className="readersBox">
-								<Title title="قائمة القراء" />
-								<div className="readersHeader">
-									<form noValidate autoComplete="off">
-										<TextField
-											className={classes.textField}
-											id="standard-basic"
-											label="  ابحث عن قارئ أو الرواية"
-											color="secondary"
-											onChange={(event) => setSearchValue(event.target.value)}
-										/>
-									</form>
-								</div>
-								<Grid container spacing={3}>
-									{Readers.filter((reader) => {
-										if (searchValue === "") return reader;
-										else if (
-											reader.name.includes(searchValue) ||
-											reader.rewaya.includes(searchValue)
-										)
-											return reader;
-									}).map((reader) => {
-										return (
-											<Grid
-												item
-												md={4}
-												sm={6}
-												xs={12}
-												className="grid"
-												key={reader.id}
-											>
-												<div
-													className="box"
-													onClick={() => {
-														resetPlayingSura();
-														goToLink(reader.id);
-													}}
-												>
-													<div className="names">
-														<h3>{reader.name}</h3>
-														<h5>{reader.rewaya}</h5>
-													</div>
-													<div
-														className="icons"
-														onClick={(event) => {
-															event.stopPropagation();
-															addItemToFavorites(reader, "favoriteReaders");
-														}}
-													>
-														<div className="like">
-															{favoriteReaders.find(
-																(r) => r.id === reader.id
-															) ? (
-																<FavoriteIcon />
-															) : (
-																<FavoriteBorderIcon />
-															)}
-														</div>
-														<div className="record">
-															<MicNoneIcon />
-															<div className="record-name">
-																<h5>{reader.count}</h5>
-															</div>
-														</div>
-													</div>
-												</div>
-											</Grid>
-										);
-									})}
-								</Grid>
-							</div>
-						);
-					}}
-				</Consumer>
+				<div className="readersBox">
+					<Title title="قائمة القراء" />
+					<Form label="ابحث عن قارئ" setSearchValue={setSearchValue} />
+					<Readers readers={paginatedReaders} history={history} />
+					<Suspense fallback={<Loading />}>
+						<Pagination
+							itemsNumber={
+								searchValue
+									? searchedReaders
+										? searchedReaders.length
+										: 0
+									: readers.length
+							}
+							itemsPerPage={15}
+							changePageNumber={changePageNumber}
+							page={page}
+						/>
+					</Suspense>
+				</div>
 			)}
 		</React.Fragment>
 	);

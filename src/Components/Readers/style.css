@@ -1,7 +1,6 @@
 .readersBox {
 	color: white;
-	border: 3px solid white;
-	padding: 30px;
+	padding-bottom: 30px;
 }
 
 .readersBox .box {
@@ -17,7 +16,7 @@
 	overflow: hidden;
 }
 
-.readersBox .readersHeader {
+.readersBox .searchForm {
 	margin-bottom: 40px;
 }
 
@@ -71,12 +70,19 @@
 	margin-right: 10px;
 }
 
+.reader h3.message {
+	color: red;
+}
+
 /* Suras */
+.surasBody {
+	padding: 10px 0 80px 0;
+}
 .surasBody .header {
 	background-color: #2e334d;
 	padding: 20px;
 	padding-bottom: 30px;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 	border-radius: 15px;
 }
 
@@ -119,10 +125,6 @@
 	cursor: pointer;
 }
 
-.surasBody .MuiPaper-root {
-	background-color: #e71f65 !important;
-}
-
 .Component-paper-39 {
 	border: none !important;
 }
@@ -139,4 +141,7 @@
 	font-weight: 700;
 }
 
+.surasBody .searchForm {
+	margin-bottom: 30px;
+}
 /* end suras */

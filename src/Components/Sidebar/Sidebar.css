@@ -3,8 +3,18 @@
 	background-color: #2e334d;
 	padding: 30px;
 	/* position: fixed; */
-	/* width: 300px; */
+	width: 100%;
+	/* z-index: 10; */
+	transition: 0.4s;
 }
+
+.sidebar h1 {
+	padding-right: 15px;
+	color: salmon;
+	margin-bottom: 30px;
+	font-size: 28px;
+}
+
 .sidebar .MuiListItem-button.active {
 	background: linear-gradient(to left, #f88b7f, #e71f65);
 	border-radius: 5px;

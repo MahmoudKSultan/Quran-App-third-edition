@@ -1,0 +1,26 @@
+.pagination .wrapper {
+	margin: 40px auto;
+	display: flex;
+	justify-content: center;
+	direction: ltr;
+	flex-wrap: wrap;
+}
+
+.pagination .wrapper span {
+	margin: 0 5px;
+	border: 2px solid #f88b7f;
+	border-radius: 5px;
+	padding: 8px 10px;
+	cursor: pointer;
+	transition: 0.3s;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.pagination .wrapper span:hover,
+.pagination .wrapper span.active {
+	background-color: #f88b7f;
+	color: white !important;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -6,12 +6,9 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import PlaylistAddOutlinedIcon from "@material-ui/icons/PlaylistAddOutlined";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import PlaylistAddCheckIcon from "@material-ui/icons/PlaylistAddCheck";
-import LinkIcon from "@material-ui/icons/Link";
 import IconButton from "@material-ui/core/IconButton";
-
+import LinkIcon from "@material-ui/icons/Link";
 // import useIzaasHook from "./../../Hooks/useIzaasHook";
 const StyledMenu = withStyles({
 	paper: {
@@ -44,7 +41,7 @@ const StyledMenuItem = withStyles((theme) => ({
 	},
 }))(MenuItem);
 
-export default function Icons({ izaa, favoriteIzaas, addIzaaToFavorites }) {
+export default function Icons({ izaa, inFav, addIzaaToFavorites, setData }) {
 	const [anchorEl, setAnchorEl] = React.useState(null);
 
 	const handleClick = (event) => {
@@ -54,13 +51,7 @@ export default function Icons({ izaa, favoriteIzaas, addIzaaToFavorites }) {
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
-	const [inFav, setInFav] = useState(false);
-	useEffect(() => {
-		if (favoriteIzaas) {
-			const inFav = favoriteIzaas.find((s) => s.radio_url === izaa.radio_url);
-			setInFav(inFav);
-		}
-	}, [favoriteIzaas]);
+
 	return (
 		<div>
 			<IconButton
@@ -86,7 +77,21 @@ export default function Icons({ izaa, favoriteIzaas, addIzaaToFavorites }) {
 					}}
 				>
 					<ListItemIcon>
-						{inFav ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+						{inFav ? (
+							<FavoriteIcon />
+						) : (
+							<FavoriteBorderIcon
+								onClick={() => {
+									setData({
+										isOpen: true,
+										message: "تمت اضافة الاذاعة الى المفضلة",
+									});
+									setTimeout(() => {
+										setData({ isOpen: false });
+									}, 2500);
+								}}
+							/>
+						)}
 					</ListItemIcon>
 					<ListItemText primary={inFav ? "في المفضلة" : "أضف للمفضلة"} />
 				</StyledMenuItem>
@@ -94,6 +99,14 @@ export default function Icons({ izaa, favoriteIzaas, addIzaaToFavorites }) {
 				<StyledMenuItem
 					onClick={() => {
 						navigator.clipboard.writeText(izaa.radio_url);
+						setData({
+							isOpen: true,
+							message: "تم نسخ رابط الاذاعة",
+						});
+						setTimeout(() => {
+							setData({ isOpen: false });
+						}, 2500);
+
 						handleClose();
 					}}
 				>

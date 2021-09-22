@@ -1,0 +1,71 @@
+.hesn-body {
+	background-image: linear-gradient(
+			290deg,
+			rgba(51, 51, 51, 0.5),
+			rgba(51, 51, 51, 0.7)
+		),
+		url("./hesn.jpg");
+	width: 100%;
+	/* height: 100%;
+	min-height: 100vh; */
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	padding: 30px 20px 50px 20px;
+	min-height: 600px;
+}
+
+.hesn-body .grid {
+	z-index: 10;
+}
+
+.hesn .grid-box {
+	display: block;
+	border: 2px solid #e71f65;
+	color: white;
+	padding: 15px;
+	border-radius: 4px;
+}
+
+.grid-box h3 {
+	text-align: center;
+}
+.single-thker {
+	padding-bottom: 80px;
+}
+.athkarBox {
+	margin-top: 50px;
+}
+.athkarBox h4 {
+	color: rgba(255, 255, 255, 0.7);
+	margin-top: 35px;
+	line-height: 1.9rem;
+	font-size: 1.1rem;
+}
+.single-thker .header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 2px solid white;
+}
+
+.single-thker .icon {
+	color: white;
+	margin-bottom: 20px;
+	cursor: pointer;
+	font-size: 42px;
+	/* padding: 7px; */
+}
+
+.single-thker .audioWrapper {
+	display: none;
+}
+
+.hesn .searchForm {
+	margin-bottom: 30px;
+}
+
+.hesn h3.message {
+	color: white;
+	padding: 20px;
+}

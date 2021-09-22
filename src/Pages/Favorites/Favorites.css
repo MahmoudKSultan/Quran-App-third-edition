@@ -1,6 +1,5 @@
 .favorites .box {
 	background-color: #2e334d;
-	margin: 0 15px;
 	min-height: 500px;
 	padding: 0 15px;
 }
@@ -18,9 +17,10 @@
 	border: 2px solid #e71f65;
 }
 
-.favorites > h4 {
+.favorites .box > h4 {
 	color: #eef;
 	margin-bottom: 30px;
+	padding-top: 10px;
 }
 .favorites .grid-box .icon {
 	display: flex;

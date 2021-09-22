@@ -1,11 +1,13 @@
-import React from "react";
+import { useState } from "react";
 import Title from "../../Title/Title";
 import "../style.css";
 import { Grid } from "@material-ui/core";
 import { Consumer } from "../../../context";
-import { Link } from "react-router-dom";
 import DeleteIcon from "@material-ui/icons/Delete";
+import Popup from "./../../Popup/Popup";
+
 function FavReaders(props) {
+	const [isOpen, setIsOpen] = useState(false);
 	const goToLink = (id) => {
 		props.history.push(`/readers/${id}`);
 	};
@@ -35,8 +37,16 @@ function FavReaders(props) {
 												<div className="icon">
 													<DeleteIcon
 														onClick={(event) => {
-															deleteFromFavorite(reader, "favoriteReaders");
 															event.stopPropagation();
+															deleteFromFavorite(
+																"name",
+																reader.name,
+																"favoriteReaders"
+															);
+															setIsOpen(true);
+															setTimeout(() => {
+																setIsOpen(false);
+															}, 2500);
 														}}
 													/>
 												</div>
@@ -49,6 +59,7 @@ function FavReaders(props) {
 					}}
 				</Consumer>
 			</div>
+			<Popup message="تم حذف القارئ من المفضلة" open={isOpen} />
 		</div>
 	);
 }

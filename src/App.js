@@ -1,40 +1,71 @@
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
-import Home from "./Pages/Home/Home";
-import Readers from "./Pages/Readers/Readers";
-import Favorites from "./Pages/Favorites/Favorites";
-import Suras from "./Pages/Suras/Suras";
-import Quran from "./Pages/Quran/Quran";
-import { Grid } from "@material-ui/core";
-import Sidebar from "./Components/Sidebar/Sidebar";
+import React, { Suspense, lazy, useRef } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { Provider } from "./context";
-import Izaa from "./Pages/Izaa/Izaa";
-import FavReaders from "./Components/FavoritesComps/Readers/FavReaders";
-import AthanPage from "./Pages/Athan/AthanPage";
-import FavSuras from "./Components/FavoritesComps/Suras/FavSuras";
+import Loading from "./Components/Loading/Loading";
+
 function App() {
+	const rightRef = useRef(null);
+	const handleMenuClick = () => {
+		rightRef.current.className === "right"
+			? (rightRef.current.className = "right hide-on-xs")
+			: (rightRef.current.className = "right");
+	};
+
+	const Sidebar = lazy(() => import("./Components/Sidebar/Sidebar"));
+	const Navbar = lazy(() => import("./Components/Navbar/Navbar"));
+	const Home = lazy(() => import("./Pages/Home/Home"));
+	const Quran = lazy(() => import("./Pages/Quran/Quran"));
+	const Readers = lazy(() => import("./Pages/Readers/Readers"));
+	const Suras = lazy(() => import("./Pages/Suras/Suras"));
+	const Favorites = lazy(() => import("./Pages/Favorites/Favorites"));
+	const FavReaders = lazy(() =>
+		import("./Components/FavoritesComps/Readers/FavReaders")
+	);
+	const FavSuras = lazy(() =>
+		import("./Components/FavoritesComps/Suras/FavSuras")
+	);
+	const Izaa = lazy(() => import("./Pages/Izaa/Izaa"));
+	const AthanPage = lazy(() => import("./Pages/Athan/AthanPage"));
+	const Hesn = lazy(() => import("./Pages/HesnAlMuslim/Hesn"));
+	const SingleThker = lazy(() => import("./Pages/HesnAlMuslim/SingleThker"));
+	const FavIzaas = lazy(() =>
+		import("./Components/FavoritesComps/Izaas/FavIzaas")
+	);
+	const NotFound = lazy(() => import("./Pages/NotFound/NotFound"));
 	return (
 		<Provider>
 			<div className="App">
-				{/* <Navbar /> */}
-				<Grid container justify="space-between">
-					<Grid item md={3} className="hide-on-xs">
-						<Sidebar />
-					</Grid>
-					<Grid item md={9} xs={12} className="pageBody">
+				<Suspense fallback={<small>loading..</small>}>
+					<Navbar menuClick={handleMenuClick} />
+				</Suspense>
+				<div className="wrapper">
+					<div className="right hide-on-xs" ref={rightRef}>
+						<Suspense fallback={<h1>loading</h1>}>
+							<Sidebar />
+						</Suspense>
+					</div>
+					<div className="left">
 						<Switch>
-							<Route path="/" component={Home} exact />
-							<Route path="/quran" component={Quran} />
-							<Route path="/readers" component={Readers} exact />
-							<Route path="/readers/:id" component={Suras} />
-							<Route path="/favorites" component={Favorites} exact />
-							<Route path="/favorites/readers" component={FavReaders} />
-							<Route path="/favorites/suras" component={FavSuras} />
-							<Route path="/izaa" component={Izaa} exact />
-							<Route path="/athan" component={AthanPage} />
+							<Suspense fallback={<small>loading..</small>}>
+								{/* <Route path="/" component={Home} exact /> */}
+								<Route path="/quran" component={Quran} />
+								<Route path="/readers" component={Readers} exact />
+								<Route path="/readers/:id" component={Suras} />
+								<Route path="/favorites" component={Favorites} exact />
+								<Route path="/favorites/readers" component={FavReaders} />
+								<Route path="/favorites/suras" component={FavSuras} />
+								<Route path="/favorites/izaas" component={FavIzaas} />
+								<Route path="/izaa" component={Izaa} exact />
+								<Route path="/athan" component={AthanPage} />
+								<Route path="/hesn" component={Hesn} exact />
+								<Route path="/hesn/:id/:name" component={SingleThker} />
+								{/* <Route path="/not-found" component={NotFound} exact /> */}
+								<Redirect from="/" to="/readers" />
+							</Suspense>
 						</Switch>
-					</Grid>
-				</Grid>
+					</div>
+				</div>
 			</div>
 		</Provider>
 	);

@@ -1,0 +1,27 @@
+.quran .wrap {
+	width: 100%;
+	height: 700px;
+	background-color: white;
+	padding: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	border-radius: 7px;
+	border: 0.5rem solid #e71f65;
+	perspective: 1500px;
+}
+.quran .wrap > * {
+	width: 50%;
+}
+.quran .wrap img {
+	width: 100%;
+	height: 100%;
+}
+
+.toRight {
+	transform: rotateY(-180deg);
+	transform-origin: 100%;
+	perspective: 600px;
+	transition: 1s;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+}
