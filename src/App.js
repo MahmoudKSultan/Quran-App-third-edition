@@ -14,7 +14,6 @@ function App() {
 
 	const Sidebar = lazy(() => import("./Components/Sidebar/Sidebar"));
 	const Navbar = lazy(() => import("./Components/Navbar/Navbar"));
-	const Home = lazy(() => import("./Pages/Home/Home"));
 	const Quran = lazy(() => import("./Pages/Quran/Quran"));
 	const Readers = lazy(() => import("./Pages/Readers/Readers"));
 	const Suras = lazy(() => import("./Pages/Suras/Suras"));
@@ -32,7 +31,6 @@ function App() {
 	const FavIzaas = lazy(() =>
 		import("./Components/FavoritesComps/Izaas/FavIzaas")
 	);
-	const NotFound = lazy(() => import("./Pages/NotFound/NotFound"));
 	return (
 		<Provider>
 			<div className="App">
