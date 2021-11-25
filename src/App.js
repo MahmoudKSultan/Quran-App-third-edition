@@ -46,8 +46,9 @@ function App() {
 					<div className="left">
 						<Switch>
 							<Suspense fallback={<small>loading..</small>}>
-								{/* <Route path="/" component={Home} exact /> */}
-								<Route path="/quran" component={Quran} />
+								{/* <Route path="/" component={exact} exact /> */}
+
+								<Route path="/quran" component={Quran} exact />
 								<Route path="/readers" component={Readers} exact />
 								<Route path="/readers/:id" component={Suras} />
 								<Route path="/favorites" component={Favorites} exact />
@@ -58,8 +59,12 @@ function App() {
 								<Route path="/athan" component={AthanPage} />
 								<Route path="/hesn" component={Hesn} exact />
 								<Route path="/hesn/:id/:name" component={SingleThker} />
+								<Route
+									path="/"
+									render={() => <Redirect to="/readers" />}
+									exact
+								/>
 								{/* <Route path="/not-found" component={NotFound} exact /> */}
-								<Redirect from="/" to="/readers" />
 							</Suspense>
 						</Switch>
 					</div>

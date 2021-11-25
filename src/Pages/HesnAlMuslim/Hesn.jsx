@@ -22,6 +22,7 @@ function Hesn() {
 	const Pagination = lazy(() =>
 		import("../../Components/Pagination/Pagination")
 	);
+
 	return (
 		<>
 			{loading ? (

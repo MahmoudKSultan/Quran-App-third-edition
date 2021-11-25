@@ -1,11 +1,11 @@
+import React, { lazy, Suspense, useState } from "react";
 import { Consumer } from "../../context";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import { Grid } from "@material-ui/core";
 import search from "./../../utils/search";
 import Form from "./Form";
-import { lazy, Suspense, useState } from "react";
 
-export default function SurasComp({ suras }) {
+function SurasComp({ suras }) {
 	// lazy importing comps
 	const Icons = lazy(() => import("./Icons"));
 	const Loading = lazy(() => import("./../Loading/Loading"));
@@ -84,3 +84,5 @@ export default function SurasComp({ suras }) {
 		</div>
 	);
 }
+
+export default SurasComp;
